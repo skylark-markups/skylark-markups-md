@@ -1,8 +1,8 @@
 /**
  * skylark-utils-md - The skylark md utility library.
- * @author Hudaokeji Co.,Ltd
+ * @author [object Object]
  * @version v0.9.0
- * @link www.skylarkjs.org
+ * @link http://www.skylarkjs.org
  * @license MIT
  */
 (function(factory,globals) {
@@ -87,12 +87,8 @@ define('skylark-langx/skylark',[], function() {
     return skylark;
 });
 
-define('skylark-utils/skylark',["skylark-langx/skylark"], function(skylark) {
-    return skylark;
-});
-
 define('skylark-utils-md/markdown',[
-    "skylark-utils/skylark"
+    "skylark-langx/skylark"
 ], function(skylark) {
 	
 	return skylark.markdown = skylark.markdown || {};
@@ -233,156 +229,6 @@ define('skylark-langx/types',[
         type: type
     };
 
-});
-define('skylark-langx/arrays',[
-	"./types"
-],function(types){
-	var filter = Array.prototype.filter,
-		isArrayLike = types.isArrayLike;
-
-    function compact(array) {
-        return filter.call(array, function(item) {
-            return item != null;
-        });
-    }
-
-    function each(obj, callback) {
-        var length, key, i, undef, value;
-
-        if (obj) {
-            length = obj.length;
-
-            if (length === undef) {
-                // Loop object items
-                for (key in obj) {
-                    if (obj.hasOwnProperty(key)) {
-                        value = obj[key];
-                        if (callback.call(value, key, value) === false) {
-                            break;
-                        }
-                    }
-                }
-            } else {
-                // Loop array items
-                for (i = 0; i < length; i++) {
-                    value = obj[i];
-                    if (callback.call(value, i, value) === false) {
-                        break;
-                    }
-                }
-            }
-        }
-
-        return this;
-    }
-
-    function flatten(array) {
-        if (isArrayLike(array)) {
-            var result = [];
-            for (var i = 0; i < array.length; i++) {
-                var item = array[i];
-                if (isArrayLike(item)) {
-                    for (var j = 0; j < item.length; j++) {
-                        result.push(item[j]);
-                    }
-                } else {
-                    result.push(item);
-                }
-            }
-            return result;
-        } else {
-            return array;
-        }
-        //return array.length > 0 ? concat.apply([], array) : array;
-    }
-
-    function grep(array, callback) {
-        var out = [];
-
-        each(array, function(i, item) {
-            if (callback(item, i)) {
-                out.push(item);
-            }
-        });
-
-        return out;
-    }
-
-    function inArray(item, array) {
-        if (!array) {
-            return -1;
-        }
-        var i;
-
-        if (array.indexOf) {
-            return array.indexOf(item);
-        }
-
-        i = array.length;
-        while (i--) {
-            if (array[i] === item) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-
-    function makeArray(obj, offset, startWith) {
-       if (isArrayLike(obj) ) {
-        return (startWith || []).concat(Array.prototype.slice.call(obj, offset || 0));
-      }
-
-      // array of single index
-      return [ obj ];             
-    }
-
-    function map(elements, callback) {
-        var value, values = [],
-            i, key
-        if (isArrayLike(elements))
-            for (i = 0; i < elements.length; i++) {
-                value = callback.call(elements[i], elements[i], i);
-                if (value != null) values.push(value)
-            }
-        else
-            for (key in elements) {
-                value = callback.call(elements[key], elements[key], key);
-                if (value != null) values.push(value)
-            }
-        return flatten(values)
-    }
-
-    function uniq(array) {
-        return filter.call(array, function(item, idx) {
-            return array.indexOf(item) == idx;
-        })
-    }
-
-    return {
-        compact: compact,
-
-        first : function(items,n) {
-            if (n) {
-                return items.slice(0,n);
-            } else {
-                return items[0];
-            }
-        },
-
-	    each: each,
-
-        flatten: flatten,
-
-        inArray: inArray,
-
-        makeArray: makeArray,
-
-        map : map,
-        
-        uniq : uniq
-
-    }
 });
 define('skylark-langx/objects',[
 	"./types"
@@ -527,6 +373,52 @@ define('skylark-langx/objects',[
         var keys = [];
         for (var key in obj) keys.push(key);
         return keys;
+    }
+
+    function each(obj, callback) {
+        var length, key, i, undef, value;
+
+        if (obj) {
+            length = obj.length;
+
+            if (length === undef) {
+                // Loop object items
+                for (key in obj) {
+                    if (obj.hasOwnProperty(key)) {
+                        value = obj[key];
+                        if (callback.call(value, key, value) === false) {
+                            break;
+                        }
+                    }
+                }
+            } else {
+                // Loop array items
+                for (i = 0; i < length; i++) {
+                    value = obj[i];
+                    if (callback.call(value, i, value) === false) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        return this;
+    }
+
+    function extend(target) {
+        var deep, args = slice.call(arguments, 1);
+        if (typeof target == 'boolean') {
+            deep = target
+            target = args.shift()
+        }
+        if (args.length == 0) {
+            args = [target];
+            target = this;
+        }
+        args.forEach(function(arg) {
+            mixin(target, arg, deep);
+        });
+        return target;
     }
 
     // Retrieve the names of an object's own properties.
@@ -708,6 +600,10 @@ define('skylark-langx/objects',[
 
         defaults : createAssigner(allKeys, true),
 
+        each : each,
+
+        extend : extend,
+
         has: has,
 
         isEqual: isEqual,
@@ -728,6 +624,127 @@ define('skylark-langx/objects',[
     };
 
 });
+define('skylark-langx/arrays',[
+	"./types",
+    "./objects"
+],function(types,objects){
+	var filter = Array.prototype.filter,
+		isArrayLike = types.isArrayLike;
+
+    function compact(array) {
+        return filter.call(array, function(item) {
+            return item != null;
+        });
+    }
+
+    function flatten(array) {
+        if (isArrayLike(array)) {
+            var result = [];
+            for (var i = 0; i < array.length; i++) {
+                var item = array[i];
+                if (isArrayLike(item)) {
+                    for (var j = 0; j < item.length; j++) {
+                        result.push(item[j]);
+                    }
+                } else {
+                    result.push(item);
+                }
+            }
+            return result;
+        } else {
+            return array;
+        }
+        //return array.length > 0 ? concat.apply([], array) : array;
+    }
+
+    function grep(array, callback) {
+        var out = [];
+
+        each(array, function(i, item) {
+            if (callback(item, i)) {
+                out.push(item);
+            }
+        });
+
+        return out;
+    }
+
+    function inArray(item, array) {
+        if (!array) {
+            return -1;
+        }
+        var i;
+
+        if (array.indexOf) {
+            return array.indexOf(item);
+        }
+
+        i = array.length;
+        while (i--) {
+            if (array[i] === item) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    function makeArray(obj, offset, startWith) {
+       if (isArrayLike(obj) ) {
+        return (startWith || []).concat(Array.prototype.slice.call(obj, offset || 0));
+      }
+
+      // array of single index
+      return [ obj ];             
+    }
+
+    function map(elements, callback) {
+        var value, values = [],
+            i, key
+        if (isArrayLike(elements))
+            for (i = 0; i < elements.length; i++) {
+                value = callback.call(elements[i], elements[i], i);
+                if (value != null) values.push(value)
+            }
+        else
+            for (key in elements) {
+                value = callback.call(elements[key], elements[key], key);
+                if (value != null) values.push(value)
+            }
+        return flatten(values)
+    }
+
+    function uniq(array) {
+        return filter.call(array, function(item, idx) {
+            return array.indexOf(item) == idx;
+        })
+    }
+
+    return {
+        compact: compact,
+
+        first : function(items,n) {
+            if (n) {
+                return items.slice(0,n);
+            } else {
+                return items[0];
+            }
+        },
+
+	    each: objects.each,
+
+        flatten: flatten,
+
+        inArray: inArray,
+
+        makeArray: makeArray,
+
+        map : map,
+        
+        uniq : uniq
+
+    }
+});
 define('skylark-langx/klass',[
     "./arrays",
     "./objects",
@@ -745,7 +762,6 @@ define('skylark-langx/klass',[
 
         ctor.prototype = new f();
     }
-
 
     var f1 = function() {
         function extendClass(ctor, props, options) {
@@ -872,9 +888,9 @@ define('skylark-langx/klass',[
             }
 
 
-            var _constructor = props.constructor;
-            if (_constructor === Object) {
-                _constructor = function() {
+            var _construct = props._construct;
+            if (!_construct) {
+                _construct = function() {
                     if (this.init) {
                         return this.init.apply(this, arguments);
                     }
@@ -894,7 +910,7 @@ define('skylark-langx/klass',[
                 )();
 
 
-            ctor._constructor = _constructor;
+            ctor._constructor = _construct;
             // Populate our constructed prototype object
             ctor.prototype = Object.create(innerParent.prototype);
 
@@ -4163,9 +4179,9 @@ define('skylark-utils-md/Parser',[
     "./markdown",
     "./primitives/marked"
 ], function(langx,markdown, marked) {
-	var Parser = markdown.Parser;
+	var Parser = marked.Parser;
 
-   langx.mixin(Parser,markdown);
+   langx.mixin(Parser,marked);
 
    return Parser ;
 });

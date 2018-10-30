@@ -1,8 +1,8 @@
 /**
  * skylark-utils-md - The skylark md utility library.
- * @author Hudaokeji Co.,Ltd
+ * @author [object Object]
  * @version v0.9.0
- * @link www.skylarkjs.org
+ * @link http://www.skylarkjs.org
  * @license MIT
  */
 define(["./markdown","./Parser","./Turndown"],function(n){return n});

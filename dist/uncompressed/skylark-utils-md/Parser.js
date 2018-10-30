@@ -3,9 +3,9 @@ define([
     "./markdown",
     "./primitives/marked"
 ], function(langx,markdown, marked) {
-	var Parser = markdown.Parser;
+	var Parser = marked.Parser;
 
-   langx.mixin(Parser,markdown);
+   langx.mixin(Parser,marked);
 
    return Parser ;
 });

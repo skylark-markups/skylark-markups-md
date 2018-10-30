@@ -1,8 +1,8 @@
 /**
  * skylark-utils-md - The skylark md utility library.
- * @author Hudaokeji Co.,Ltd
+ * @author [object Object]
  * @version v0.9.0
- * @link www.skylarkjs.org
+ * @link http://www.skylarkjs.org
  * @license MIT
  */
 (function(factory,globals) {
@@ -81,7 +81,7 @@
 })(function(define,require) {
 
 define('skylark-utils-md/markdown',[
-    "skylark-utils/skylark"
+    "skylark-langx/skylark"
 ], function(skylark) {
 	
 	return skylark.markdown = skylark.markdown || {};
@@ -1353,9 +1353,9 @@ define('skylark-utils-md/Parser',[
     "./markdown",
     "./primitives/marked"
 ], function(langx,markdown, marked) {
-	var Parser = markdown.Parser;
+	var Parser = marked.Parser;
 
-   langx.mixin(Parser,markdown);
+   langx.mixin(Parser,marked);
 
    return Parser ;
 });
