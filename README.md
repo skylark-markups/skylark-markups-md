@@ -1,4 +1,4 @@
-# skylark-utils-md
+# sskylark-markups-md
 The skylark markdown utility library
 
 ## Dependences
@@ -6,8 +6,6 @@ The skylark markdown utility library
 | Project                                                      | Status | Description                           |
 | ------------------------------------------------------------ | ------ | ------------------------------------- |
 | [skylark-langx](https://github.com/skylarklangx/skylark-langx) |        | Javascript language extension library |
-| [skylark-utils](https://github.com/skylarkutils/skylark-utils) |        | An Universal HTML5 Javascript Library |
-| [skylark-utils-dom](https://github.com/skylarkutils/skylark-utils-dom) |        | An Universal DOM Utility Library      |
 
 ## Different builds
 
@@ -15,10 +13,10 @@ builds are in the directory dist.
 
 |                      | build                                | Description              |
 | -------------------- | ------------------------------------ | ------------------------ |
-| full                 | skylark-utils-md-all.js              | included dependences     |
-| only                 | skylark-utils-md.js                  | not included dependences |
-| full （development） | uncompressed/skylark-utils-md-all.js | included dependences     |
-| only （development） | uncompressed/skylark-utils-md.js     | not included dependences |
+| full                 | sskylark-markups-md-all.js              | included dependences     |
+| only                 | sskylark-markups-md.js                  | not included dependences |
+| full （development） | uncompressed/sskylark-markups-md-all.js | included dependences     |
+| only （development） | uncompressed/sskylark-markups-md.js     | not included dependences |
 
 Please use the "full" version when using this library alone, and use the "only" version when using other skylark libraries.
 
@@ -26,9 +24,9 @@ Please use the "full" version when using this library alone, and use the "only" 
 
 You can get the latest version in many different ways:
 
-- Downloading [a ZIP file from master](https://github.com/skylarkutils/skylark-utils-md/archive/master.zip)
-- Cloning using Git: `git clone https://github.com/skylarkutils/skylark-utils-md.git`
-- Installing via NPM: `npm install https://github.com/skylarkutils/skylark-utils-md.git#master --save`
+- Downloading [a ZIP file from master](https://github.com/skylark-markups/sskylark-markups-md/archive/master.zip)
+- Cloning using Git: `git clone https://github.com/skylark-markups/sskylark-markups-md.git`
+- Installing via NPM: `npm install https://github.com/skylark-markups/sskylark-markups-md.git#master --save`
 
 ## Building 
 

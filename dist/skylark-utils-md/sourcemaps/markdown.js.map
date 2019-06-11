@@ -1,1 +1,0 @@
-{"version":3,"sources":["markdown.js"],"names":["define","skylark","markdown"],"mappings":";;;;;;;AAAAA,QACI,yBACD,SAASC,GAEX,MAAOA,GAAQC,SAAWD,EAAQC","file":"../markdown.js","sourcesContent":["define([\r\n    \"skylark-langx/skylark\"\r\n], function(skylark) {\r\n\t\r\n\treturn skylark.markdown = skylark.markdown || {};\r\n});"]}
