@@ -1,4 +1,4 @@
-# sskylark-parsers-md
+# sskylark-parsers-markdown
 The skylark markdown utility library
 
 ## Dependences
