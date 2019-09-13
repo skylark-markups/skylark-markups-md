@@ -1,4 +1,4 @@
-# sskylark-markups-md
+# sskylark-parsers-markdown
 The skylark markdown utility library
 
 ## Dependences
@@ -13,10 +13,10 @@ builds are in the directory dist.
 
 |                      | build                                | Description              |
 | -------------------- | ------------------------------------ | ------------------------ |
-| full                 | sskylark-markups-md-all.js              | included dependences     |
-| only                 | sskylark-markups-md.js                  | not included dependences |
-| full （development） | uncompressed/sskylark-markups-md-all.js | included dependences     |
-| only （development） | uncompressed/sskylark-markups-md.js     | not included dependences |
+| full                 | sskylark-parsers-markdown-all.js              | included dependences     |
+| only                 | sskylark-parsers-markdown.js                  | not included dependences |
+| full （development） | uncompressed/sskylark-parsers-markdown-all.js | included dependences     |
+| only （development） | uncompressed/sskylark-parsers-markdown.js     | not included dependences |
 
 Please use the "full" version when using this library alone, and use the "only" version when using other skylark libraries.
 
@@ -24,9 +24,9 @@ Please use the "full" version when using this library alone, and use the "only" 
 
 You can get the latest version in many different ways:
 
-- Downloading [a ZIP file from master](https://github.com/skylark-markups/sskylark-markups-md/archive/master.zip)
-- Cloning using Git: `git clone https://github.com/skylark-markups/sskylark-markups-md.git`
-- Installing via NPM: `npm install https://github.com/skylark-markups/sskylark-markups-md.git#master --save`
+- Downloading [a ZIP file from master](https://github.com/skylark-parsers/sskylark-parsers-markdown/archive/master.zip)
+- Cloning using Git: `git clone https://github.com/skylark-parsers/sskylark-parsers-markdown.git`
+- Installing via NPM: `npm install https://github.com/skylark-parsers/sskylark-parsers-markdown.git#master --save`
 
 ## Building 
 

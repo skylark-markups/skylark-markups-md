@@ -10,7 +10,7 @@
   "homepage": "www.skylarkjs.org",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skylark-markups/skylark-parsers-markdown.git"
+    "url": "git+https://github.com/skylark-parsers/skylark-parsers-markdown.git"
   },
   "keywords": [
     "skylark",
