@@ -1,5 +1,5 @@
 /**
- * skylark-markups-md - The skylark md utility library.
+ * skylark-parsers-markdown - The skylark markdown utility library.
  * @author Hudaokeji Co.,Ltd
  * @version v0.9.0
  * @link www.skylarkjs.org
@@ -86,13 +86,13 @@
 
 })(function(define,require) {
 
-define('skylark-markups-md/markdown',[
+define('skylark-parsers-markdown/markdown',[
     "skylark-langx/skylark"
 ], function(skylark) {
 	
 	return skylark.attach("markups.markdown",{});
 });
-define('skylark-markups-md/primitives/marked',[],function() {
+define('skylark-parsers-markdown/primitives/marked',[],function() {
   /**
    * marked - a markdown parser
    * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
@@ -1354,7 +1354,7 @@ define('skylark-markups-md/primitives/marked',[],function() {
 
   return marked;
 });
-define('skylark-markups-md/Parser',[
+define('skylark-parsers-markdown/Parser',[
 	"skylark-langx/langx",
     "./markdown",
     "./primitives/marked"
@@ -1365,7 +1365,7 @@ define('skylark-markups-md/Parser',[
 
    return Parser ;
 });
-define('skylark-markups-md/primitives/turndown',[],function () { 
+define('skylark-parsers-markdown/primitives/turndown',[],function () { 
   'use strict';
 
   // original version : 5.0.1
@@ -2251,7 +2251,7 @@ define('skylark-markups-md/primitives/turndown',[],function () {
 
 });
 
-define('skylark-markups-md/Turndown',[
+define('skylark-parsers-markdown/Turndown',[
 	"skylark-langx/langx",
     "./markdown",
     "./primitives/turndown"
@@ -2259,7 +2259,7 @@ define('skylark-markups-md/Turndown',[
 
    return markdown.Turndown =  TurndownService;
 });
-define('skylark-markups-md/main',[
+define('skylark-parsers-markdown/main',[
     "./markdown",
     "./Parser",
     "./Turndown"
@@ -2267,8 +2267,8 @@ define('skylark-markups-md/main',[
     return markdown;
 });
 
-define('skylark-markups-md', ['skylark-markups-md/main'], function (main) { return main; });
+define('skylark-parsers-markdown', ['skylark-parsers-markdown/main'], function (main) { return main; });
 
 
 },this);
-//# sourceMappingURL=sourcemaps/skylark-markups-md.js.map
+//# sourceMappingURL=sourcemaps/skylark-parsers-markdown.js.map

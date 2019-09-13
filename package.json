@@ -1,7 +1,7 @@
 {
-  "name": "skylark-markups-md",
+  "name": "skylark-parsers-markdown",
   "version": "0.9.0",
-  "description": "The skylark md utility library.",
+  "description": "The skylark markdown utility library.",
   "main": "-",
   "scripts": {
     "build": "sbundle build .",
@@ -10,7 +10,7 @@
   "homepage": "www.skylarkjs.org",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skylark-markups/skylark-markups-md.git"
+    "url": "git+https://github.com/skylark-markups/skylark-parsers-markdown.git"
   },
   "keywords": [
     "skylark",
