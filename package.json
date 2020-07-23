@@ -1,5 +1,5 @@
 {
-  "name": "skylark-parsers-markdown",
+  "name": "skylark-texts-markdown",
   "version": "0.9.0",
   "description": "The skylark markdown utility library.",
   "main": "-",
@@ -10,7 +10,7 @@
   "homepage": "www.skylarkjs.org",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skylark-parsers/skylark-parsers-markdown.git"
+    "url": "git+https://github.com/skylark-texts/skylark-texts-markdown.git"
   },
   "keywords": [
     "skylark",
@@ -23,8 +23,8 @@
   "author": "Hudaokeji Co.,Ltd",
   "license": "MIT",
   "bugs": "https://github.com/skylarkjs/skylark/issues",
-  "devDependencies": {
-    "skylark-langx": "git+https://github.com/skylarklangx/skylark-langx.git#master"
+  "dependencies": {
+    "skylark-langx": "git+https://github.com/skylark-langx/skylark-langx.git#master"
   },
   "engines": {
     "node": ">=0.8.0"
