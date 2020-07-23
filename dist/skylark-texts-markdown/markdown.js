@@ -1,5 +1,5 @@
 /**
- * skylark-parsers-markdown - The skylark markdown utility library.
+ * skylark-texts-markdown - The skylark markdown utility library.
  * @author Hudaokeji Co.,Ltd
  * @version v0.9.0
  * @link www.skylarkjs.org

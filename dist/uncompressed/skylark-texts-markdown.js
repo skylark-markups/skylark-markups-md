@@ -1,5 +1,5 @@
 /**
- * skylark-parsers-markdown - The skylark markdown utility library.
+ * skylark-texts-markdown - The skylark markdown utility library.
  * @author Hudaokeji Co.,Ltd
  * @version v0.9.0
  * @link www.skylarkjs.org
@@ -86,13 +86,13 @@
 
 })(function(define,require) {
 
-define('skylark-parsers-markdown/markdown',[
+define('skylark-texts-markdown/markdown',[
     "skylark-langx/skylark"
 ], function(skylark) {
 	
 	return skylark.attach("markups.markdown",{});
 });
-define('skylark-parsers-markdown/primitives/marked',[],function() {
+define('skylark-texts-markdown/primitives/marked',[],function() {
   /**
    * marked - a markdown parser
    * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
@@ -1354,7 +1354,7 @@ define('skylark-parsers-markdown/primitives/marked',[],function() {
 
   return marked;
 });
-define('skylark-parsers-markdown/Parser',[
+define('skylark-texts-markdown/Parser',[
 	"skylark-langx/langx",
     "./markdown",
     "./primitives/marked"
@@ -1365,7 +1365,7 @@ define('skylark-parsers-markdown/Parser',[
 
    return Parser ;
 });
-define('skylark-parsers-markdown/primitives/turndown',[],function () { 
+define('skylark-texts-markdown/primitives/turndown',[],function () { 
   'use strict';
 
   // original version : 5.0.1
@@ -2251,7 +2251,7 @@ define('skylark-parsers-markdown/primitives/turndown',[],function () {
 
 });
 
-define('skylark-parsers-markdown/Turndown',[
+define('skylark-texts-markdown/Turndown',[
 	"skylark-langx/langx",
     "./markdown",
     "./primitives/turndown"
@@ -2259,7 +2259,7 @@ define('skylark-parsers-markdown/Turndown',[
 
    return markdown.Turndown =  TurndownService;
 });
-define('skylark-parsers-markdown/main',[
+define('skylark-texts-markdown/main',[
     "./markdown",
     "./Parser",
     "./Turndown"
@@ -2267,8 +2267,8 @@ define('skylark-parsers-markdown/main',[
     return markdown;
 });
 
-define('skylark-parsers-markdown', ['skylark-parsers-markdown/main'], function (main) { return main; });
+define('skylark-texts-markdown', ['skylark-texts-markdown/main'], function (main) { return main; });
 
 
 },this);
-//# sourceMappingURL=sourcemaps/skylark-parsers-markdown.js.map
+//# sourceMappingURL=sourcemaps/skylark-texts-markdown.js.map
